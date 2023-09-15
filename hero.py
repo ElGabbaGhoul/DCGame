@@ -8,7 +8,7 @@ class Hero:
     def take_damage(self, damage):
         self.health -= damage
         if self.health <= 0:
-            print(f"{self.name} has been defeated.")
+            print(f"{self.name} has been slain.")
     
     def use_health_potion(self):
         if "health_potion" in self.inventory:
@@ -28,7 +28,7 @@ class Hero:
             if self.mana >= 20:
                 self.mana -= 20
                 print(f"{self.name} casts Fireball! Mana: {self.mana}.")
-                # Target takes x damage, DoT
+                # Target takes x damage, DoT?
             else:
                 print(f"{self.name} doesn't have enough mana to cast Fireball.")
         if spell_name == "heal":

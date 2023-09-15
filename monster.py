@@ -25,9 +25,6 @@ class Monster:
         self.monster_type = f"{self.prefix} {self.race}"
         self.health = self.calculate_health()
         self.is_boss = False
-        self.is_treasure_box = False
-        self.is_sanctuary = False
-        self.is_escape = False
 
     def get_random_prefix(self):
         for level_range, prefixes in self.prefix_ranges.items():
@@ -42,8 +39,7 @@ class Monster:
         return "Unknown Race"
 
     def calculate_health(self):
-        base_health = 25
-
+        base_health = 20
         for level_range, _ in self.prefix_ranges.items():
           if self.level == level_range[1]:
             level_health = round(((level_range[1] / level_range[0]) * self.level))
@@ -52,12 +48,8 @@ class Monster:
             if level_range[0] <= self.level <= level_range[1]:
               level_health = round(((level_range[1] / level_range[0]) * self.level))
               return base_health + level_health
-            # print("range", level_range)
-            # if level_range[0] <= self.level <= level_range[1]:
-            #     level_difference = self.level - level_range[0]
-            #     print("difference", level_difference)
-            #     return base_health + (level_difference * health_increment)
-            
+
+
     def generate_monster(self):
         for level_range, _ in self.prefix_ranges.items():
             if level_range[0] <= self.level <= level_range[1]:
